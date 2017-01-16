@@ -1,0 +1,14 @@
+#! /bin/sh
+bspc config border_width        1
+bspc config window_gap          0
+
+bspc config split_ratio         0.5
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+bspc config focus_by_distance   true
+bspc config focused_border_color "#ff6600" 
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc rule -a Gimp desktop=^8 follow=on floating=on
+bspc rule -a Android-studio desktop=^8 follow=on floating=on

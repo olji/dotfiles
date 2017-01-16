@@ -1,0 +1,121 @@
+## Edit this on the NAO website: https://alt.org/nethack/webconf/
+## or if in terminal, see https://alt.org/nethack/virus.txt
+
+
+OPTIONS=time
+OPTIONS=color
+OPTIONS=!number_pad
+OPTIONS=!implicit_uncursed
+OPTIONS=!autopickup
+OPTIONS=fruit:Hash
+OPTIONS=norest_on_space
+OPTIONS=autodig
+OPTIONS=autoopen
+OPTIONS=bones
+OPTIONS=dark_room
+OPTIONS=hilite_pet
+OPTIONS=hilite_pile
+OPTIONS=msg_window:reversed
+OPTIONS=symset:DECgraphics
+
+OPTIONS=showexp
+OPTIONS=showrace
+
+## Change symbols
+SYMBOLS=S_ghost:X
+
+## Sort items by name. One of "none", "loot", or "full"
+OPTIONS=sortloot:loot
+
+## Require explicit yes for some prompts
+#OPTIONS=paranoid_confirmation:Confirm quit attack pray wand Remove
+
+## Colored menus. Regular expressions allowed.
+#
+OPTIONS=menucolors
+
+MENUCOLOR=" blessed"=green
+MENUCOLOR=" uncursed"=cyan
+MENUCOLOR=" named nc"=cyan
+MENUCOLOR=" cursed"=red
+MENUCOLOR=" named pc"=red
+
+MENUCOLOR=" water"=lightblue
+MENUCOLOR=" called plain"=lightblue
+MENUCOLOR=" clear"=lightblue
+MENUCOLOR=" holy water"=lightcyan
+MENUCOLOR=" unholy water"=blue
+
+MENUCOLOR=" blessed .* water"=lightcyan
+MENUCOLOR=" blessed clear"=lightcyan
+MENUCOLOR=" cursed .* water"=blue
+MENUCOLOR=" cursed clear"=blue
+
+MENUCOLOR=" worn"=cyan&inverse
+MENUCOLOR=" blessed .* worn"=green&inverse
+
+MENUCOLOR=" blessed .* bag of holding"=green&underline
+MENUCOLOR=" uncursed .* bag of holding"=cyan&underline
+MENUCOLOR=" cursed .* bag of holding"=red&underline
+
+MENUCOLOR=" wand of cancellation"=orange&underline
+MENUCOLOR=" called cancellation"=orange&underline
+MENUCOLOR=" bag of tricks"=orange&underline
+
+MENUCOLOR=" (gauntlets|gloves|boots) .* fumbl"=orange
+MENUCOLOR=" fumble boots"=orange
+MENUCOLOR=" dunce cap"=orange
+MENUCOLOR="align"=orange
+MENUCOLOR=" c(hi|o)ckatrice corpse"=yellow
+MENUCOLOR=" cockatrice egg"=yellow
+
+MENUCOLOR=":0"=yellow
+MENUCOLOR="named op"=yellow
+
+MENUCOLOR="wishing"=lightcyan
+MENUCOLOR="unpaid"=white&underline
+
+
+# Spellcasting
+
+MENUCOLOR=" 0% "=white
+MENUCOLOR=" [1-9]% "=cyan
+MENUCOLOR=" [12][0-9]% "=yellow
+MENUCOLOR=" [3-5][0-9]% "=brown
+MENUCOLOR=" [6-8][0-9]% "=orange
+MENUCOLOR=" 9[0-9]% "=red
+MENUCOLOR=" 100% "=red
+MENUCOLOR="[a-zA-Z] - [a-zA-Z ]+ [0-9]\*   [a-z]+ +[0-9]+% "=black
+
+# Enhance
+MENUCOLOR=" \[Basic\]$"=green
+MENUCOLOR=" \[(Skilled|Master)\]$"=lightgreen
+MENUCOLOR=" \[(Expert|Grand Master)\]$"=white
+MENUCOLOR=" martial arts +\[Expert\]$"=green
+MENUCOLOR="^ *[a-z -]+ +\[Unskilled\]$"=black
+#MENUCOLOR="^ *[a-z] - +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master)\]$"
+
+
+# Messagetypes
+#
+## displacing pets. hide the message.
+MSGTYPE=hide "You swap places with .*"
+## items on floor. don't repeat the message.
+#MSGTYPE=norep "You see here a .*"
+#MSGTYPE=norep "You see here an .*"
+## delayed instadeaths. always prompt for -more-
+MSGTYPE=stop "You are slowing down."
+MSGTYPE=stop "You find it hard to breathe."
+MSGTYPE=stop "You are turning a little .*"
+
+## stairs spam
+MSGTYPE=hide "You descend .*"
+MSGTYPE=hide "You climb .*"
+MSGTYPE=hide "You hit the rock ."
+
+
+#OPTIONS=hilite_status: hitpoints/30%/red/green
+#OPTIONS=hilite_status: power/33%/orange/cyan
+#OPTIONS=hilite_status: experience-level/2/normal/yellow
+#OPTIONS=hilite_status: hunger/1%/bright-magenta/blue
+#OPTIONS=hilite_status: gold/50%/yellow/yellow
