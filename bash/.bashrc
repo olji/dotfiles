@@ -18,6 +18,7 @@ if [[ -s ~/.note ]]; then
     cat ~/.note
     echo 
 fi
+HISTCONTROL=ignoreboth
 
 alias ls='ls --color=auto'
 PS1='[\W]\$ '
