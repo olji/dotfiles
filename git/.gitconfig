@@ -1,6 +1,6 @@
 [user]
 	email = me@rickardjonsson.se
-	name = Rickard  Jonsson
+	name = Rickard Jonsson
 	signingkey = 0x9378D731360B7320
 [push]
 	default = matching
