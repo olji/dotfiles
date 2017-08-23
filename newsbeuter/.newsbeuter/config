@@ -1,0 +1,16 @@
+bind-key j down
+bind-key k up
+bind-key o open-in-browser
+bind-key O open-in-browser-and-mark-read
+bind-key l open
+
+bind-key h quit
+
+article-sort-order date-asc
+notify-screen yes
+
+refresh-on-startup no
+auto-reload no
+reload-time 240
+
+browser firefox

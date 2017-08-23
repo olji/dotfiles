@@ -6,7 +6,7 @@
 
 XF86Launch1
     urxvt -e sh -c 'bspc node -t fullscreen | ~/screensaver.sh'
-alt + u
+alt + p
     setxkbmap us -variant dvorak-l -option ctrl:nocaps
 # Set svdvorak
 alt + o
@@ -14,6 +14,8 @@ alt + o
 # Set dvorak
 alt + e 
     setxkbmap dvorak  -option ctrl:nocaps
+alt + u 
+    setxkbmap ru -variant phonetic_dvorak -option ctrl:nocaps
 # Terminal emulator
 alt + Return
     urxvt
