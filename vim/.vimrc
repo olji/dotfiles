@@ -23,7 +23,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'morhetz/gruvbox' " Gruvbox color scheme
 Plugin 'altercation/vim-colors-solarized' "Solarized color scheme
 Plugin 'itchyny/lightline.vim' " Status line
-Plugin 'dbarsam/vim-rainbow-parentheses' " Colorise parenthesis level
+Plugin 'kien/rainbow_parentheses.vim' " Colorise parenthesis level
 Plugin 'octol/vim-cpp-enhanced-highlight' " Extended syntax highlighting for c/cpp
 
 " Improve usability of existing functions
@@ -63,7 +63,12 @@ filetype plugin indent on
 syntax enable " Turn on syntax highlighting
 
 silent! colorscheme gruvbox " Sets colorscheme
-autocmd VimEnter * RainbowToggle
+
+" Rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 if has("win32")
     set guifont=consolas:h12 " Change to your liking
