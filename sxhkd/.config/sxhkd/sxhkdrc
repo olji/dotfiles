@@ -18,7 +18,7 @@ alt + u
     setxkbmap ru -variant phonetic_dvorak -option ctrl:nocaps
 # Terminal emulator
 alt + Return
-    urxvt
+    st
 
 # program launcher
 alt + space

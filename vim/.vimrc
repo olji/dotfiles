@@ -21,6 +21,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Cosmetics
 Plugin 'morhetz/gruvbox' " Gruvbox color scheme
+Plugin 'mkarmona/materialbox'
 Plugin 'altercation/vim-colors-solarized' "Solarized color scheme
 Plugin 'itchyny/lightline.vim' " Status line
 Plugin 'kien/rainbow_parentheses.vim' " Colorise parenthesis level
@@ -52,8 +53,9 @@ Plugin 'ludovicchabant/vim-gutentags' " Automatic ctags management
 Plugin 'jreybert/vimagit' " Git wrapper similar to Magit for emacs,
 " really nice for staging small sections
 Plugin 'tpope/vim-fugitive' " Another git wrapper, much nicer in other aspects
-Plugin 'justincampbell/vim-eighties' " Automatically resize active window
+"Plugin 'justincampbell/vim-eighties' " Automatically resize active window
 Plugin 'suan/vim-instant-markdown' " Vim plugin for use together with instant-markdown server
+" Plugin 'w0rp/ale'
 
 call vundle#end()
 " }}}
@@ -78,7 +80,9 @@ endif
 
 set background=dark " Sets background to be dark (noshitsherlock)
 set encoding=utf-8 " Set utf-8 to support more characters
-set t_Co=256 " Set terminal-vi to use 256 colors
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " {{{ extended highlight setup 
 let g:cpp_class_scope_highlight = 1
@@ -123,14 +127,37 @@ autocmd InsertEnter * silent! :set nornu " Disable relative number when in inser
 autocmd InsertLeave * silent! :set rnu " Enable relative number when in any other
 " }}}
 " Keybinds {{{
-
 let mapleader = "\\" " Ensure leader is hack
 " Map space to leader through hack, making hack show in showcmd when entering
 " leader command
 map <space> \
-
+" {{{ Macros
+" Tab can be used anywhere on line to properly indent
+nnoremap <tab> ==
+" gv but force Visual
+nnoremap gVb `[v`]
+" gv but force V-Block
+nnoremap gVB `[<C-v>`]
+" gv but force V-Line
+nnoremap gVL `[<S-v>`]
+" Standardise Y and D behaviour
+nnoremap Y y$
+" }}}
+" Chords {{{
+" Properly indent whole file using Shift+Tab
+nnoremap <S-tab> m0gg=G'0
+" Bind Ctrl+n to toggle NERDTreeToggle
+nnoremap <C-n> :NERDTreeToggle<CR>
+" Move in windows with C-<dir> instead of C-w <dir>
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+" Highlight last inserted text
+" }}}
+" Leader commands {{{
 " Toggle folds
-nnoremap <leader>.  za
+nnoremap <leader>.  zA
 " Remove highlight from previous search
 nnoremap <leader>, :noh<CR>
 " Toggle NERDTree
@@ -153,23 +180,7 @@ nnoremap <leader>as :AS<CR>
 nnoremap <leader>av :AV<CR>
 nnoremap <leader>u :UndotreeToggle
 nnoremap <leader>d :Dox<CR>
-
-" Move current line up or down using arrow keys
-"nnoremap <up> ddkP
-"nnoremap <down> ddp
-" Tab can be used anywhere on line to properly indent
-nnoremap <tab> ==
-" Properly indent whole file using Shift+Tab
-nnoremap <S-tab> gg=G
-" Bind Ctrl+n to toggle NERDTreeToggle
-nnoremap <C-n> :NERDTreeToggle<CR>
-" Move in windows with C-<dir> instead of C-w <dir>
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-" Highlight last inserted text
-nnoremap gV `[v`]
+" }}}
 " }}}
 " Normal Commands {{{
 command! W :w " :W will work as :w
@@ -229,20 +240,18 @@ set incsearch " Search while entering word
 " Folding {{{
 set foldenable " Enable folding
 set foldlevelstart=0 " Have all folds closed at the start
-" set foldmethod=marker " Fold based on expression
-set foldmethod=expr " Fold based on expression
-set foldexpr=GetFoldLevel(v:lnum) " call getfold() as folding expression
+set foldmethod=marker " Fold based on expression
+"set foldmethod=expr " Fold based on expression
+"set foldexpr=GetFoldLevel(v:lnum) " call getfold() as folding expression
 set foldnestmax=0 " Maximum amount of nested folds
 
 function! NextNonBlankLine(lnum)
     let numlines = line('$')
     let current = a:lnum + 1
-
     while current <= numlines
         if getline(current) =~? '\v\S'
             return current
         endif
-
         let current += 1
     endwhile
 
