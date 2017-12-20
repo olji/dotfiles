@@ -11,6 +11,8 @@ fi
 export EDITOR=vim
 export DW_HOME=~/.dw/
 export PATH=$PATH:~/bin/
+export TERMINAL=miniterm
+#export TERMINAL=urxvt
 
 shopt -s extglob
 

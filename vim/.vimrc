@@ -29,7 +29,6 @@ Plugin 'octol/vim-cpp-enhanced-highlight' " Extended syntax highlighting for c/c
 
 " Improve usability of existing functions
 Plugin 'AutoComplPop' " Nice wrapper to OmniComplete
-Plugin 'Rip-Rip/clang_complete'
 Plugin 'mbbill/undotree' " Visualisation of the undo tree
 Plugin 'jlanzarotta/bufexplorer' " Practically :buffers with sorting
 Plugin 'fholgado/minibufexpl.vim' " Simple overhead of buffer numbers
