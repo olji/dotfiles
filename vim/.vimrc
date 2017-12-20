@@ -55,7 +55,7 @@ Plugin 'jreybert/vimagit' " Git wrapper similar to Magit for emacs,
 Plugin 'tpope/vim-fugitive' " Another git wrapper, much nicer in other aspects
 "Plugin 'justincampbell/vim-eighties' " Automatically resize active window
 Plugin 'suan/vim-instant-markdown' " Vim plugin for use together with instant-markdown server
-" Plugin 'w0rp/ale'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 " }}}
