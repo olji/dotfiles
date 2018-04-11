@@ -18,7 +18,7 @@ alt + u
     setxkbmap ru -variant phonetic_dvorak -option ctrl:nocaps
 # Terminal emulator
 alt + Return
-    $TERMINAL
+    urxvt
 
 # program launcher
 alt + space
@@ -36,7 +36,7 @@ super + alt + Escape
 	bspc quit
 
 # close and kill
-alt + {_,shift + }w
+alt + shift + w
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
