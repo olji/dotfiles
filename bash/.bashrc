@@ -26,4 +26,3 @@ HISTCONTROL=ignoreboth
 alias ls='ls --color=auto'
 PS1='\033[32;1m[\W]\033[0m\$ '
 stty -ixon
-notes
