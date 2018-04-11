@@ -45,16 +45,12 @@ Plugin 'apalmer1377/factorus'
 " Tags, symbols and documentation
 Plugin 'Doxygentoolkit.vim' " Create doxygen snippet
 Plugin 'majutsushi/tagbar' " File content viewer
-Plugin 'antiagainst/cscope-macros.vim' " Macros for cscope
-Plugin 'ludovicchabant/vim-gutentags' " Automatic ctags management
 
 " QoL
 Plugin 'jreybert/vimagit' " Git wrapper similar to Magit for emacs,
 " really nice for staging small sections
 Plugin 'tpope/vim-fugitive' " Another git wrapper, much nicer in other aspects
-"Plugin 'justincampbell/vim-eighties' " Automatically resize active window
 Plugin 'suan/vim-instant-markdown' " Vim plugin for use together with instant-markdown server
-Plugin 'w0rp/ale'
 
 call vundle#end()
 " }}}
@@ -79,7 +75,6 @@ endif
 
 set background=dark " Sets background to be dark (noshitsherlock)
 set encoding=utf-8 " Set utf-8 to support more characters
-set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
