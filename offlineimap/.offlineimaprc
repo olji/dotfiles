@@ -1,0 +1,25 @@
+# In the general section
+[general]
+accounts = personal
+# Controls how many accounts may be synced simultaneously
+maxsyncaccounts = 1
+
+# In the account identifier
+[Account personal]
+localrepository = Personal-local
+remoterepository = Personal-remote
+autorefresh = 0.5
+quick = 10
+
+[Repository Personal-local]
+type = Maildir
+localfolders = ~/mail/personal
+
+[Repository Personal-remote]
+type = IMAP
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter lambda foldername: foldername not in ["INBOX.spam"]
+remotehost = mailcluster.loopia.se
+remoteuser = me@rickardjonsson.se
+idlefolders = ['INBOX']
+
